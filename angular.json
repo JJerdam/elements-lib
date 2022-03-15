@@ -3,5 +3,171 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "@custom-components/form": {
+      "projectType": "library",
+      "root": "projects/custom-components/form",
+      "sourceRoot": "projects/custom-components/form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/custom-components/form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/custom-components/form/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/custom-components/form/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-components/form/src/test.ts",
+            "tsConfig": "projects/custom-components/form/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-components/form/karma.conf.js"
+          }
+        }
+      }
+    },
+    "components-core-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/components-core-app",
+      "sourceRoot": "projects/components-core-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/components-core-app",
+            "index": "projects/components-core-app/src/index.html",
+            "main": "projects/components-core-app/src/main.ts",
+            "polyfills": "projects/components-core-app/src/polyfills.ts",
+            "tsConfig": "projects/components-core-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/components-core-app/src/favicon.ico",
+              "projects/components-core-app/src/assets"
+            ],
+            "styles": [
+              "projects/components-core-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/components-core-app/src/environments/environment.ts",
+                  "with": "projects/components-core-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "components-core-app:build:production"
+            },
+            "development": {
+              "browserTarget": "components-core-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "components-core-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/components-core-app/src/test.ts",
+            "polyfills": "projects/components-core-app/src/polyfills.ts",
+            "tsConfig": "projects/components-core-app/tsconfig.spec.json",
+            "karmaConfig": "projects/components-core-app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/components-core-app/src/favicon.ico",
+              "projects/components-core-app/src/assets"
+            ],
+            "styles": [
+              "projects/components-core-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "@custom-components/header": {
+      "projectType": "library",
+      "root": "projects/custom-components/header",
+      "sourceRoot": "projects/custom-components/header/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/custom-components/header/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/custom-components/header/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/custom-components/header/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-components/header/src/test.ts",
+            "tsConfig": "projects/custom-components/header/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-components/header/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@custom-components/form"
 }

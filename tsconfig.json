@@ -2,6 +2,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@custom-components/form": [
+        "dist/custom-components/form/custom-components-form",
+        "dist/custom-components/form"
+      ],
+      "@custom-components/header": [
+        "dist/custom-components/header/custom-components-header",
+        "dist/custom-components/header"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

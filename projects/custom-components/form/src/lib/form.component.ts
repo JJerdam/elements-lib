@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-form',
   template: `
     <p>
-      form works!
+      I come from the library!
     </p>
   `,
   styles: [

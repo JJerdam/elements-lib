@@ -2,6 +2,7 @@ import { Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HeaderModule } from '@custom-components/header';
 
 import { AppComponent } from './app.component';
 
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: []
@@ -21,12 +23,6 @@ export class AppModule {
 
   ngDoBootstrap() {
     const el = createCustomElement(AppComponent, {injector: this.injector});
-    /* Check if element was already registered
-      Known problems:
-        - React
-        - AngularJS
-        ...
-    */
     if(!customElements.get('my-custom-form')) {
       customElements.define('my-custom-form', el)
     }

@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { FormsModule } from '@angular/forms';
 import { FormComponent } from './form.component';
 
 
@@ -8,9 +10,13 @@ import { FormComponent } from './form.component';
     FormComponent
   ],
   imports: [
+    FormsModule
   ],
-  exports: [
-    FormComponent
-  ]
+  exports: []
 })
-export class FormModule { }
+export class FormModule { 
+  constructor(private injector: Injector) {
+    const el = createCustomElement(FormComponent, {injector: this.injector});
+    customElements.define('lib-form', el);
+  }
+}

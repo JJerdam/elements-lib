@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 import { HeaderComponent } from './header.component';
 
 
@@ -7,10 +8,14 @@ import { HeaderComponent } from './header.component';
   declarations: [
     HeaderComponent
   ],
-  imports: [
-  ],
+  imports: [],
   exports: [
     HeaderComponent
   ]
 })
-export class HeaderModule { }
+export class HeaderModule { 
+  constructor(private injector: Injector) {
+    const el = createCustomElement(HeaderComponent, {injector: this.injector});
+    customElements.define('lib-header', el);
+  }
+}

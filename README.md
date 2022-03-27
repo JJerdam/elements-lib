@@ -1,27 +1,36 @@
-# ElementsLib
+# Installation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+`npm install`
 
-## Development server
+# Build
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`npm install build:app`
 
-## Code scaffolding
+This project uses `build-elements.js` script that will merge generated `.js` files into one:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```js
+const fs = require('fs-extra');
+const concat = require('concat');
 
-## Build
+const appName = "components-core-app";
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+const buildElement = async () => {
+    const files = [
+        `./dist/${appName}/main.js`,
+        `./dist/${appName}/polyfills.js`,
+        `./dist/${appName}/runtime.js`
+    ];
+    await fs.ensureDir('elements');
+    await concat(files, 'elements/my-form.js')
+}
 
-## Running unit tests
+buildElement().then(() => {
+    console.log("File created")
+});
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This will ensure that `elements` directory exists, and put generated script there.
 
-## Running end-to-end tests
+# Run
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Open `index.html` file in a browser.

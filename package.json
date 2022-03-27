@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:app": "ng build components-core-app --prod --output-hashing none --stats-json && node build-elements.js"
+    "build:app": "ng build components-core-app --prod --output-hashing none && node build-elements.js"
   },
   "private": true,
   "dependencies": {

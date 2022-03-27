@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:app": "ng serve components-core-app",
-    "build:app": "ng build --prod components-core-app --prod --output-hashing none --stats-json && node build-elements.js",
+    "build:app": "ng build --prod components-core-app --prod --output-hashing none && node build-elements.js",
     "build:lib": "ng build --prod @custom-components/header"
   },
   "private": true,

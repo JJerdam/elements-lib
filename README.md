@@ -4,7 +4,7 @@
 
 # Build
 
-`npm install build:app`
+`npm run build:app`
 
 This project uses `build-elements.js` script that will merge generated `.js` files into one:
 

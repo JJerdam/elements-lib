@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   submitted = false;
+  @Output() formSubmitted = new EventEmitter<any>();
   
   constructor() { }
 
@@ -16,6 +17,7 @@ export class AppComponent {
 
   onSubmit(form: NgForm) {
     console.log(form.value);
+    this.formSubmitted.emit("Hello");
     if(form.valid) {
       this.submitted = true;
       form.resetForm();

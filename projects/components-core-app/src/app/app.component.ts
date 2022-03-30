@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   submitted = false;
-  @Output() formSubmitted = new EventEmitter<any>();
+  @Output() formSubmitted = new EventEmitter<string>();
   
   constructor() { }
 
@@ -17,8 +17,8 @@ export class AppComponent {
 
   onSubmit(form: NgForm) {
     console.log(form.value);
-    this.formSubmitted.emit("Hello");
     if(form.valid) {
+      this.formSubmitted.emit(JSON.stringify(form.value));
       this.submitted = true;
       form.resetForm();
       setTimeout(() => {

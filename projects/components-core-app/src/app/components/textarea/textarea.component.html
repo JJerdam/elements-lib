@@ -1,0 +1,10 @@
+<label for="nameField">{{labelField}}</label>
+<textarea 
+    [name]="nameField"
+    [rows]="rowsCount"
+    [required]="required"
+    (change)="onChange()"
+    #inp="ngModel"
+    ngModel
+></textarea>
+<p *ngIf="inp.hasError('required')" class="msg-error">This field is required</p>

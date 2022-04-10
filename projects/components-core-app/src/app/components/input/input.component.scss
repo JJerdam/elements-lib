@@ -1,0 +1,15 @@
+input {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 10px 5px; 
+    box-sizing:border-box;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.msg-error {
+    color: red;
+}

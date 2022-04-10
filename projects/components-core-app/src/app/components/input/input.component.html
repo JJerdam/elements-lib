@@ -1,0 +1,11 @@
+<label [for]="nameField">{{ labelField }}</label>
+<input 
+    [type]="typeField"
+    [name]="nameField"
+    #inp="ngModel"
+    (change)="onChange()"
+    [required]="required"
+    ngModel
+/>
+<p *ngIf="inp.invalid && (inp.dirty || inp.touched)" class="msg-error">This field is required</p>
+

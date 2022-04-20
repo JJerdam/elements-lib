@@ -10,7 +10,8 @@ const buildElement = async () => {
         `./dist/${appName}/runtime.js`
     ];
     await fs.ensureDir('elements');
-    await concat(files, 'elements/my-form.js')
+    await concat(files, 'elements/my-form.js');
+    await fs.copy(`./dist/${appName}/styles.css`, 'elements/styles.css');
 }
 
 buildElement().then(() => {

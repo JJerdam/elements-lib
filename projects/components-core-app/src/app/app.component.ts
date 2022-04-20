@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   submitted = false;
   @Output() formSubmitted = new EventEmitter<any>();
-  @Input('customtext') customtext!: string;
+  @Input() customtext!: string;
 
   onSubmit(form: NgForm) {
     console.log(form.value);

@@ -3,13 +3,17 @@
         <title>Custom Elements Example</title>
     </head>
     <body>
-        <my-custom-form></my-custom-form>
+        <my-custom-form customtext="Sending good vibes"></my-custom-form>
         <script src="./my-form.js"></script>
         <script>
             document.querySelector('my-custom-form').addEventListener('formSubmitted', event => {
-                console.log(event);
-                console.log(event.detail)
-            })
+                console.log("formSubmitted", event);
+                console.log("formSubmitted details", event.detail)
+            });
+
+            document.querySelector('my-custom-form').addEventListener('not-existing-event', event => {
+                console.log("non existing event");
+            });
         </script>
     </body>
 </html>

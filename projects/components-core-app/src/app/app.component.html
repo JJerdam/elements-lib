@@ -1,5 +1,6 @@
 <div class="form-container">
   <h3>Simple Form</h3>
+  <p *ngIf="customtext">{{ customtext }}</p>
   <form #f="ngForm" (submit)="onSubmit(f)">
     <div class="form-group">
       <label for="firstName">Name</label>

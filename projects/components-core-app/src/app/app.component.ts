@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,17 +8,13 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   submitted = false;
-  @Output() formSubmitted = new EventEmitter<string>();
-  
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Output() formSubmitted = new EventEmitter<any>();
+  @Input('customtext') customtext!: string;
 
   onSubmit(form: NgForm) {
     console.log(form.value);
     if(form.valid) {
-      this.formSubmitted.emit(JSON.stringify(form.value));
+      this.formSubmitted.emit(form.value);
       this.submitted = true;
       form.resetForm();
       setTimeout(() => {

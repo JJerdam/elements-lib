@@ -22,12 +22,7 @@ export class InputComponent {
 
     constructor(private changeDetector: ChangeDetectorRef) {}
 
-    @HostListener("focusout")
-    onBlur() {
-        this.changeDetector.detectChanges();
-    }
-
     onChange() {
-        this.changeDetector.markForCheck();
+        this.changeDetector.detectChanges();
     }
 }

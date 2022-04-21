@@ -3,9 +3,9 @@
     [type]="typeField"
     [name]="nameField"
     #inp="ngModel"
-    (change)="onChange()"
+    (input)="onChange()"
     [required]="required"
     ngModel
 />
-<p *ngIf="inp.invalid && (inp.dirty || inp.touched)" class="msg-error">This field is required</p>
+<p *ngIf="inp.hasError('required')" class="msg-error">This field is required</p>
 

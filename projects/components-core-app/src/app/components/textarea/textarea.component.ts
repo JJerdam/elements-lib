@@ -22,7 +22,7 @@ export class TextAreaComponent {
 
     constructor(private changeDetector: ChangeDetectorRef) {}
 
-    @HostListener('focusout')
+    @HostListener('keyup')
     onBlur()  {
         this.changeDetector.detectChanges();
     }

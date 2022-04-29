@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Input } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from "@angular/core";
 import { ControlContainer, NgForm } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { ControlContainer, NgForm } from '@angular/forms';
     changeDetection: ChangeDetectionStrategy.OnPush,
     viewProviders: [
         { 
-            provide: ControlContainer, 
+            provide: ControlContainer,
             useExisting: NgForm 
         }
     ]

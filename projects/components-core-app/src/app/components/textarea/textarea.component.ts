@@ -18,7 +18,8 @@ export class TextAreaComponent {
     @Input() labelField!: string;
     @Input() nameField!: string;
     @Input() required!: boolean;
-    @Input() rowsCount!: number;
+
+    rowsCount = 10;
 
     constructor(private changeDetector: ChangeDetectorRef) {}
 
@@ -28,6 +29,6 @@ export class TextAreaComponent {
     }
 
     onChange() {
-        this.changeDetector.markForCheck();
+        //this.changeDetector.markForCheck();
     }
 }

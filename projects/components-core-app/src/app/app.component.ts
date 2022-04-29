@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,9 +7,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent{
+export class AppComponent {
   submitted = false;
   formInvalid = false;
+  @ViewChild('f') form!: NgForm;
 
   textAreaRowsCount = 10;
   fieldRequired = true;
